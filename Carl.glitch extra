@@ -1,0 +1,2 @@
+const reply = maybeGlitch(talkToCarl(userMessage));
+addMessage("Carl", reply);
