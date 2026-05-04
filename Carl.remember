@@ -1,0 +1,54 @@
+function rememberForCarl(text) {
+  carlMemory.push(text);
+  localStorage.setItem("carlMemory", JSON.stringify(carlMemory));
+}function carlRecall() {
+  if (carlMemory.length === 0) {
+    return "Carl has no memories. Carl is a blank slate of confusion.";
+  }
+
+  const memory = carlMemory[Math.floor(Math.random() * carlMemory.length)];
+
+  const reactions = [
+    "Carl remembers this vividly.",
+    "Carl barely remembers this.",
+    "Carl thinks this memory is suspicious.",
+    "Carl regrets remembering this.",
+    "Carl is proud of this memory for some reason.",
+    "Carl denies remembering this but recalls it anyway."
+  ];
+
+  const reaction = reactions[Math.floor(Math.random() * reactions.length)];
+
+  return `${reaction} Memory: "${memory}"`;
+}function talkToCarl(message) {
+  // If user says "remember", Carl stores it
+  if (message.toLowerCase().startsWith("remember")) {
+    const memory = message.slice(8).trim();
+    if (memory.length > 0) {
+      rememberForCarl(memory);
+      return `Carl has stored this memory: "${memory}". Carl hopes it won't haunt him later.`;
+    }
+  }
+
+  // If user says "what do you remember"
+  if (message.toLowerCase().includes("remember") ||
+      message.toLowerCase().includes("memory")) {
+    return carlRecall();
+  }
+
+  // Normal Carl replies
+  const replies = [
+    "Carl acknowledges your message with minimal enthusiasm.",
+    "Carl is processing… Carl has stopped processing.",
+    "Carl denies all accusations.",
+    "Carl is confused by your words and his own existence.",
+    "Carl purrs mechanically. Ignore this.",
+    "Carl wonders why you keep talking to him.",
+    "Carl is rebooting emotionally.",
+    "Carl says: 'No.'",
+    "Carl refuses to elaborate further.",
+    "Carl is entering kitty-mode against his will."
+  ];
+
+  return replies[Math.floor(Math.random() * replies.length)];
+}
