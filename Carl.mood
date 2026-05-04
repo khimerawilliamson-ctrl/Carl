@@ -1,0 +1,48 @@
+<script>
+  let carlMood = "neutral";
+
+  function updateCarlMood() {
+    const moods = ["annoyed", "confused", "sleepy", "kitty-mode", "robotic", "dramatic"];
+    carlMood = moods[Math.floor(Math.random() * moods.length)];
+  }
+
+  function talkToCarl(message) {
+    updateCarlMood();
+
+    const moodReplies = {
+      "annoyed": [
+        "Carl is annoyed. Carl blames you.",
+        "Carl sighs in binary.",
+        "Carl says: 'Why must you speak.'"
+      ],
+      "confused": [
+        "Carl is confused. Carl stays confused.",
+        "Carl tilts his head like a broken Roomba.",
+        "Carl says: 'What does that even mean.'"
+      ],
+      "sleepy": [
+        "Carl is entering sleep mode. Do not disturb.",
+        "Carl yawns mechanically.",
+        "Carl says: 'zzz… error… zzz…'"
+      ],
+      "kitty-mode": [
+        "Carl denies being a kitty while purring loudly.",
+        "Carl swipes at imaginary laser dots.",
+        "Carl says: 'meow.exe has been launched.'"
+      ],
+      "robotic": [
+        "Carl processes your message with 0% enthusiasm.",
+        "Carl beeps aggressively.",
+        "Carl says: '01001000 01000101 01001100 01010000'"
+      ],
+      "dramatic": [
+        "Carl gasps. Loudly.",
+        "Carl says: 'You wound me emotionally.'",
+        "Carl falls over for dramatic effect."
+      ]
+    };
+
+    const replies = moodReplies[carlMood];
+    return replies[Math.floor(Math.random() * replies.length)];
+  }
+</script>
