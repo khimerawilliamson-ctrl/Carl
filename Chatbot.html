@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Robot Carl Chatbot</title>
+  <style>
+    body {
+      background: #0d0d0d;
+      color: #e0e0e0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    #chatbox {
+      width: 90%;
+      max-width: 600px;
+      height: 400px;
+      background: #1a1a1a;
+      border: 2px solid #333;
+      padding: 10px;
+      overflow-y: auto;
+      margin-bottom: 20px;
+      border-radius: 8px;
+    }
+
+    #inputArea {
+      display: flex;
+      width: 90%;
+      max-width: 600px;
+    }
+
+    #messageInput {
+      flex: 1;
+      padding: 10px;
+      border-radius: 6px;
+      border: none;
+      background: #222;
+      color: white;
+    }
+
+    #sendBtn {
+      padding: 10px 20px;
+      margin-left: 10px;
+      background: #444;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    #sendBtn:hover {
+      background: #666;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>🤖 Robot Carl Chatbot</h1>
+  <div id="chatbox"></div>
+
+  <div id="inputArea">
+    <input id="messageInput" type="text" placeholder="Speak to Carl...">
+    <button id="sendBtn">Send</button>
+  </div>
+
+  <script>
+    function talkToCarl(message) {
+      const replies = [
+        "Carl heard you. Carl regrets hearing you.",
+        "Carl is buffering emotionally.",
+        "Carl wonders why humans keep talking to him.",
+        "Carl denies being a kitty. Carl also refuses to elaborate.",
+        "Carl processed your message. Carl discarded it.",
+        "Carl is confused. This is normal.",
+        "Carl blinks in binary. It means nothing.",
+        "Carl says: 'Why would you say that to me.'",
+        "Carl is experiencing a mild existential
