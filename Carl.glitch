@@ -1,0 +1,9 @@
+function maybeGlitch(text) {
+  if (Math.random() < 0.12) {
+    return text
+      .split("")
+      .map(ch => (Math.random() < 0.2 ? ch + "̷" : ch))
+      .join("");
+  }
+  return text;
+}
