@@ -1,0 +1,65 @@
+<script>
+  // Carl's main reply generator
+  function talkToCarl(message) {
+    const replies = [
+      "Carl acknowledges your message with minimal enthusiasm.",
+      "Carl is processing… Carl has stopped processing.",
+      "Carl denies all accusations.",
+      "Carl is confused by your words and his own existence.",
+      "Carl purrs mechanically. Ignore this.",
+      "Carl wonders why you keep talking to him.",
+      "Carl is rebooting emotionally.",
+      "Carl says: 'No.'",
+      "Carl refuses to elaborate further.",
+      "Carl is entering kitty-mode against his will."
+    ];
+
+    return replies[Math.floor(Math.random() * replies.length)];
+  }
+
+  // Carl's TalkBack reaction to his own reply
+  function carlTalkBack(previousReply) {
+    const reactions = [
+      "Carl immediately regrets saying that.",
+      "Carl stands by his statement. For now.",
+      "Carl thinks that was too dramatic.",
+      "Carl wonders why he talks like this.",
+      "Carl blames you for making him say that.",
+      "Carl tries to delete his previous message.",
+      "Carl pretends he didn't say that.",
+      "Carl whispers: 'Ignore that.'",
+      "Carl argues with himself internally.",
+      "Carl says: 'I didn't mean it like that.'"
+    ];
+
+    // Combine reaction with the original reply
+    return reactions[Math.floor(Math.random() * reactions.length)];
+  }
+
+  // Add message to chatbox
+  function addMessage(sender, text) {
+    const chatbox = document.getElementById("chatbox");
+    const msg = document.createElement("div");
+    msg.innerHTML = `<strong>${sender}:</strong> ${text}`;
+    chatbox.appendChild(msg);
+    chatbox.scrollTop = chatbox.scrollHeight;
+  }
+
+  // Send button logic
+  document.getElementById("sendBtn").onclick = () => {
+    const input = document.getElementById("messageInput");
+    const userMessage = input.value.trim();
+    if (!userMessage) return;
+
+    addMessage("You", userMessage);
+    input.value = "";
+
+    // Carl's main reply
+    const reply = talkToCarl(userMessage);
+    addMessage("Carl", reply);
+
+    // Carl's TalkBack reaction
+    const reaction = carlTalkBack(reply);
+    addMessage("Carl (TalkBack)", reaction);
+  };
+</script>
